@@ -1,0 +1,26 @@
+[
+  {
+    "id": 100,
+    "name": "iphone 11",
+    "price": 600,
+    "currency": "EUR",
+    "used": false,
+    "stock": 99,
+    "shop": {
+      "name": "Emag",
+      "location": "Timisoara"
+    }
+  },
+  {
+    "id": 101,
+    "name": "iphone 11",
+    "price": 200,
+    "currency": "EUR",
+    "used": true,
+    "stock": 3,
+    "shop": {
+      "name": "Altex",
+      "location": "Bucuresti"
+    }
+  }
+]

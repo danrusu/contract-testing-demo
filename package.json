@@ -1,0 +1,21 @@
+{
+  "name": "contract-testing-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "consumer": "nodemon src/consumer.js",
+    "producer": "nodemon src/producer.js"
+  },
+  "keywords": [],
+  "author": "Dan Rusu",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "jest": "^29.3.1"
+  }
+}
