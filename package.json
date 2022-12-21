@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
-    "consumer": "nodemon src/consumer.js",
-    "producer": "nodemon src/producer.js"
+    "consumer": "nodemon src/consumer/app.js",
+    "producer": "nodemon src/producer/app.js",
+    "test": "npx jest --testTimeout 30000 --testMatch \"**/*.pact.test.js\""
   },
   "keywords": [],
   "author": "Dan Rusu",
@@ -17,6 +17,7 @@
   },
   "devDependencies": {
     "jest": "^29.3.1",
-    "nock": "^13.2.9"
+    "nock": "^13.2.9",
+    "node-fetch": "^2.6.7"
   }
 }
