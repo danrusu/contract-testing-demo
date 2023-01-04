@@ -1,6 +1,6 @@
 const nock = require('nock');
-const products = require('../data/products.json');
-const { ProductService } = require('../src/consumer/ProductService');
+const products = require('../../data/products.json');
+const { ProductService } = require('../../consumer/src/ProductService');
 
 const PRODUCER_URL = 'http://localhost:1113';
 const productService = new ProductService(PRODUCER_URL);

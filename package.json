@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "consumer": "nodemon src/consumer/app.js",
-    "producer": "nodemon src/producer/app.js",
+    "consumer": "nodemon consumer/src/app.js",
+    "producer": "nodemon producer/src/app.js",
     "test": "jest --testTimeout 30000 --testMatch \"**/*.pact.test.js\""
   },
   "keywords": [],
