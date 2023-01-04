@@ -10,22 +10,22 @@ npm intall
 
 - from different terminals
 
-```bash
-npm start producer
+  ```bash
+  npm start producer
 
-npm start consumer
-```
+  npm start consumer
+  ```
 
 ## 3 Run contract tests using PactFlow.io broker
 
 - setup environment vars
 
-```bash
-export PACT_BROKER_BASE_URL=https://danrusu.pactflow.io
-export PACT_BROKER_TOKEN=******
-export PUBLISH_PACT=true
-export PACT_BROKER_PUBLISH_VERIFICATION_RESULTS=true
-```
+  ```bash
+  export PACT_BROKER_BASE_URL=https://danrusu.pactflow.io
+  export PACT_BROKER_TOKEN=******
+  export PUBLISH_PACT=true
+  export PACT_BROKER_PUBLISH_VERIFICATION_RESULTS=true
+  ```
 
 - generate contract from consumer
 
