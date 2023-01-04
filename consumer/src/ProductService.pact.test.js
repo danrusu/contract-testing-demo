@@ -22,7 +22,7 @@ describe('API Pact test', () => {
   describe('getting all products', () => {
     test('products exist', async () => {
       // set up Pact interactions
-      provider.addInteraction({
+      await provider.addInteraction({
         states: [{ description: 'products exist' }],
         uponReceiving: 'get all products',
         withRequest: {
@@ -51,7 +51,7 @@ describe('API Pact test', () => {
   describe('getting one product by ID', () => {
     test('product with ID 100 exists', async () => {
       // set up Pact interactions
-      provider.addInteraction({
+      await provider.addInteraction({
         states: [{ description: 'product with ID 100 exists' }],
         uponReceiving: 'get product with ID 100',
         withRequest: {
