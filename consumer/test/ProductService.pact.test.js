@@ -12,7 +12,7 @@ const { eachLike, like } = MatchersV3;
 const provider = new PactV3({
   consumer: 'FrontendWebsite',
   provider: 'ProductService',
-  log: path.resolve(process.cwd(), 'logs', 'pact.log'),
+  log: path.resolve(process.cwd(), 'consumer/logs', 'pact.log'),
   logLevel: 'warn',
   dir: path.resolve(process.cwd(), 'consumer/pacts'),
   spec: SpecificationVersion.SPECIFICATION_VERSION_V2,

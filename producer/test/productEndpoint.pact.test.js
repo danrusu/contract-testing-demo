@@ -15,8 +15,8 @@ describe('Pact Verification', () => {
       providerVersion: '1.0.0',
       pactUrls: [
         path.resolve(
-          __dirname,
-          '../../consumer/pacts/FrontendWebsite-ProductService.json',
+          process.cwd(),
+          'consumer/pacts/FrontendWebsite-ProductService.json',
         ),
       ],
     };
