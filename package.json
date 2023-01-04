@@ -6,8 +6,8 @@
   "scripts": {
     "consumer": "nodemon --watch consumer consumer/src/app.js",
     "producer": "nodemon --watch producer producer/src/app.js",
-    "pact:c": "jest --testTimeout 30000 --testMatch \"<rootDir>/consumer/test/**/*.pact.test.js\"",
-    "pact:p": "jest --testTimeout 30000 --testMatch \"<rootDir>/producer/test/**/*.pact.test.js\""
+    "pact:consumer": "jest --testTimeout 30000 --testMatch \"<rootDir>/consumer/test/**/*.pact.test.js\"",
+    "pact:producer": "jest --testTimeout 30000 --testMatch \"<rootDir>/producer/test/**/*.pact.test.js\""
   },
   "keywords": [],
   "author": "Dan Rusu",

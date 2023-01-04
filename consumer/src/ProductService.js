@@ -1,3 +1,4 @@
+// ProductService will be used in Browser and in NodeJS contract tests
 const isNodeJs = typeof window === 'undefined';
 
 if (isNodeJs) {
@@ -8,7 +9,7 @@ if (isNodeJs) {
   }
 }
 
-class ProductServiceClient {
+class ProductService {
   baseUrl;
 
   constructor(baseUrl) {
@@ -27,5 +28,5 @@ class ProductServiceClient {
 }
 
 if (isNodeJs) {
-  module.exports = { ProductServiceClient };
+  module.exports = { ProductService };
 }

@@ -11,12 +11,12 @@ describe('Pact Verification', () => {
     const opts = {
       logLevel: 'INFO',
       providerBaseUrl: 'http://localhost:1113',
-      provider: 'ProductService',
+      provider: 'ProductController',
       providerVersion: '1.0.0',
       pactUrls: [
         path.resolve(
           process.cwd(),
-          'consumer/pacts/FrontendWebsite-ProductService.json',
+          'consumer/pacts/FrontendWebsite-ProductController.json',
         ),
       ],
     };

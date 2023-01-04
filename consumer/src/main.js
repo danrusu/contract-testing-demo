@@ -1,7 +1,7 @@
-const productServiceClient = new productServiceClient('http://localhost:1113');
+const productService = new ProductService('http://localhost:1113');
 
 const displayProducts = async () => {
-  const products = await productServiceClient.getProducts();
+  const products = await productService.getProducts();
   const productsHtml = products
     .map(
       product =>
@@ -15,7 +15,7 @@ const displayProducts = async () => {
 };
 
 const displayProduct = async productId => {
-  const product = await productServiceClient.getProduct(productId);
+  const product = await productService.getProduct(productId);
   const productHtml = Object.entries(product).reduce(
     (acc, [key, val]) =>
       acc +
