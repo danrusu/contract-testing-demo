@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "consumer": "nodemon consumer/src/app.js",
-    "producer": "nodemon producer/src/app.js",
-    "test": "jest --testTimeout 30000 --testMatch \"**/*.pact.test.js\""
+    "consumer": "nodemon --watch consumer consumer/src/app.js",
+    "producer": "nodemon --watch producer producer/src/app.js",
+    "pact:c": "jest --testTimeout 30000 --testMatch \"<rootDir>/consumer/test/**/*.pact.test.js\"",
+    "pact:p": "jest --testTimeout 30000 --testMatch \"<rootDir>/producer/test/**/*.pact.test.js\""
   },
   "keywords": [],
   "author": "Dan Rusu",
@@ -19,6 +20,7 @@
     "@pact-foundation/pact": "^10.4.0",
     "jest": "^29.3.1",
     "nock": "^13.2.9",
-    "node-fetch": "^2.6.7"
+    "node-fetch": "^2.6.7",
+    "nodemon": "^2.0.20"
   }
 }

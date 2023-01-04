@@ -1,6 +1,6 @@
 const path = require('path');
 const products = require('../../data/products.json');
-const { ProductService } = require('../../consumer/src/ProductService');
+const { ProductService } = require('../src/ProductService');
 
 const {
   PactV3,
@@ -14,7 +14,7 @@ const provider = new PactV3({
   provider: 'ProductService',
   log: path.resolve(process.cwd(), 'logs', 'pact.log'),
   logLevel: 'warn',
-  dir: path.resolve(process.cwd(), 'pacts'),
+  dir: path.resolve(process.cwd(), 'consumer/pacts'),
   spec: SpecificationVersion.SPECIFICATION_VERSION_V2,
 });
 

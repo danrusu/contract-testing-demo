@@ -10,9 +10,12 @@ function getProducts(_req, res) {
 }
 
 function getProduct(req, res) {
-  const { productId } = req.params;
+  const productId = parseInt(req.params.productId);
   try {
-    const product = products.find(product => `${product.id}` === productId);
+    const product = products.find(product => product.id === productId);
+    //delete product.name; // to breack pact - missing the following keys: name
+    //product.name = productId; // to breack pact - wrong value
+    //product.id = '' + productId; // to breack pact - wrong type
     res.send(product);
   } catch (e) {
     res.status(500).send(`Failed to get product ${productId}`);
