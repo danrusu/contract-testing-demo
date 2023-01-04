@@ -1,0 +1,87 @@
+{
+  "consumer": {
+    "name": "FrontendWebsite"
+  },
+  "interactions": [
+    {
+      "description": "get product with ID 100",
+      "providerState": "product with ID 100 exists",
+      "request": {
+        "method": "GET",
+        "path": "/product/100"
+      },
+      "response": {
+        "body": {
+          "currency": "EUR",
+          "id": 100,
+          "name": "iphone 11",
+          "price": 600,
+          "shop": {
+            "location": "Timisoara",
+            "name": "Emag"
+          },
+          "stock": 99,
+          "used": false
+        },
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8"
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        },
+        "status": 200
+      }
+    },
+    {
+      "description": "get all products",
+      "providerState": "products exist",
+      "request": {
+        "method": "GET",
+        "path": "/products"
+      },
+      "response": {
+        "body": [
+          {
+            "currency": "EUR",
+            "id": 100,
+            "name": "iphone 11",
+            "price": 600,
+            "shop": {
+              "location": "Timisoara",
+              "name": "Emag"
+            },
+            "stock": 99,
+            "used": false
+          }
+        ],
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8"
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type",
+            "min": 1
+          }
+        },
+        "status": 200
+      }
+    }
+  ],
+  "metadata": {
+    "pact-js": {
+      "version": "10.4.0"
+    },
+    "pactRust": {
+      "ffi": "0.3.18",
+      "models": "1.0.2"
+    },
+    "pactSpecification": {
+      "version": "2.0.0"
+    }
+  },
+  "provider": {
+    "name": "ProductService"
+  }
+}

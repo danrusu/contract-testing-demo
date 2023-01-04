@@ -14,4 +14,14 @@ describe('API', () => {
     const resProducts = await productService.getProducts();
     expect(resProducts).toEqual(products);
   });
+
+  test('get product by id', async () => {
+    const product = products[0];
+    const scope = nock(PRODUCER_URL)
+      .get(`/product/${product.id}`)
+      .reply(200, product, { 'Access-Control-Allow-Origin': '*' });
+
+    const resProduct = await productService.getProduct(product.id);
+    expect(resProduct).toEqual(product);
+  });
 });

@@ -6,7 +6,7 @@
   "scripts": {
     "consumer": "nodemon src/consumer/app.js",
     "producer": "nodemon src/producer/app.js",
-    "test": "npx jest --testTimeout 30000 --testMatch \"**/*.pact.test.js\""
+    "test": "jest --testTimeout 30000 --testMatch \"**/*.pact.test.js\""
   },
   "keywords": [],
   "author": "Dan Rusu",
