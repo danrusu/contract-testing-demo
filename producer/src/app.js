@@ -1,4 +1,4 @@
-const { getProduct, getProducts } = require('./productEndpoint');
+const { getProduct, getProducts } = require('./ProductService');
 
 const express = require('express');
 const cors = require('cors');

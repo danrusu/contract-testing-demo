@@ -1,4 +1,6 @@
-if (typeof window === 'undefined') {
+const isNodeJs = typeof window === 'undefined';
+
+if (isNodeJs) {
   const fetch2 = require('node-fetch');
 
   function fetch(...args) {
@@ -6,7 +8,7 @@ if (typeof window === 'undefined') {
   }
 }
 
-class ProductService {
+class ProductServiceClient {
   baseUrl;
 
   constructor(baseUrl) {
@@ -24,6 +26,6 @@ class ProductService {
   }
 }
 
-if (typeof window === 'undefined') {
-  module.exports = { ProductService };
+if (isNodeJs) {
+  module.exports = { ProductServiceClient };
 }

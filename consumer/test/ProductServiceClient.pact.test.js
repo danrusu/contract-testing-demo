@@ -1,6 +1,6 @@
 const path = require('path');
 const products = require('../../data/products.json');
-const { ProductService } = require('../src/ProductService');
+const { ProductServiceClient } = require('../src/ProductServiceClient');
 
 const {
   PactV3,
@@ -10,7 +10,7 @@ const {
 const { eachLike, like } = MatchersV3;
 
 const provider = new PactV3({
-  consumer: 'FrontendWebsite',
+  consumer: 'FrontendWebsite', //ProductServiceClient
   provider: 'ProductService',
   log: path.resolve(process.cwd(), 'consumer/logs', 'pact.log'),
   logLevel: 'warn',
@@ -39,10 +39,10 @@ describe('API Pact test', () => {
       });
 
       await provider.executeTest(async mockService => {
-        const productService = new ProductService(mockService.url);
+        const productServiceClient = new ProductServiceClient(mockService.url);
 
         // make request to Pact mock server
-        const products = await productService.getProducts();
+        const products = await productServiceClient.getProducts();
 
         expect(products).toStrictEqual([products[0]]);
       });
@@ -68,10 +68,10 @@ describe('API Pact test', () => {
       });
 
       await provider.executeTest(async mockService => {
-        const productService = new ProductService(mockService.url);
+        const productServiceClient = new ProductServiceClient(mockService.url);
 
         // make request to Pact mock server
-        const product = await productService.getProduct(100);
+        const product = await productServiceClient.getProduct(100);
 
         expect(product).toStrictEqual(products[0]);
       });
