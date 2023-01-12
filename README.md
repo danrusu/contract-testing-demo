@@ -21,10 +21,16 @@ npm intall
 - setup environment vars
 
   ```bash
+  # for producer and consumer
   export PACT_BROKER_BASE_URL=https://danrusu.pactflow.io
   export PACT_BROKER_TOKEN=******
-  export PUBLISH_PACT=true
-  export PACT_BROKER_PUBLISH_VERIFICATION_RESULTS=true
+  # for consumer
+  export PACT_PUBLISH=true
+  export PACT_TAGS="test,v1"
+  # for producer
+  export PACT_PUBLISH_VERIFICATION_RESULTS=true
+  export PACT_PRODUCER_TAGS="v2"
+  export PACT_CONSUMER_TAGS="test"
   ```
 
 - generate contract from consumer
@@ -36,10 +42,10 @@ npm intall
 - publish contract to PactFlow.io
 
   ```bash
-  npm run pact:consumer
+  npm run pact:publish
   ```
 
-- verify published contract against provider
+- verify published contract against provider (start producer first)
 
   ```bash
   npm run pact:provider

@@ -1,5 +1,5 @@
 const path = require('path');
-const products = require('../../data/products.json');
+const testProducts = require('../../data/products.json');
 const { ProductService } = require('../src/ProductService');
 
 const {
@@ -9,20 +9,22 @@ const {
 } = require('@pact-foundation/pact');
 const { eachLike, like } = MatchersV3;
 
-const provider = new PactV3({
-  consumer: 'FrontendWebsite', //ProductService
+const producerMock = new PactV3({
+  consumer: 'FrontendWebsite',
   provider: 'ProductService',
+  port: process.env.PACT_PRODUCER_MOCK_PORT || 1122,
+  dir: path.resolve(process.cwd(), 'consumer/pacts'),
   log: path.resolve(process.cwd(), 'consumer/logs', 'pact.log'),
   logLevel: 'warn',
-  dir: path.resolve(process.cwd(), 'consumer/pacts'),
   spec: SpecificationVersion.SPECIFICATION_VERSION_V2,
 });
 
-describe('API Pact test', () => {
+describe('ProductService Pact test', () => {
   describe('getting all products', () => {
     test('products exist', async () => {
+      // Arrange
       // set up Pact interactions
-      await provider.addInteraction({
+      producerMock.addInteraction({
         states: [{ description: 'products exist' }],
         uponReceiving: 'get all products',
         withRequest: {
@@ -34,24 +36,27 @@ describe('API Pact test', () => {
           headers: {
             'Content-Type': 'application/json; charset=utf-8',
           },
-          body: eachLike(products[0]),
+          body: like(testProducts),
         },
       });
 
-      await provider.executeTest(async mockService => {
+      await producerMock.executeTest(async mockService => {
+        console.log(`PACT Producer Mock URL: ${mockService.url}`);
+
         const productService = new ProductService(mockService.url);
 
         // make request to Pact mock server
         const products = await productService.getProducts();
 
-        expect(products).toStrictEqual([products[0]]);
+        // Act & Assert
+        expect(products).toStrictEqual(testProducts);
       });
     });
   });
   describe('getting one product by ID', () => {
     test('product with ID 100 exists', async () => {
-      // set up Pact interactions
-      await provider.addInteraction({
+      // Arrange
+      producerMock.addInteraction({
         states: [{ description: 'product with ID 100 exists' }],
         uponReceiving: 'get product with ID 100',
         withRequest: {
@@ -63,17 +68,17 @@ describe('API Pact test', () => {
           headers: {
             'Content-Type': 'application/json; charset=utf-8',
           },
-          body: like(products[0]),
+          body: like(testProducts[0]),
         },
       });
 
-      await provider.executeTest(async mockService => {
+      await producerMock.executeTest(async mockService => {
         const productService = new ProductService(mockService.url);
 
-        // make request to Pact mock server
+        // Act & Assert
         const product = await productService.getProduct(100);
 
-        expect(product).toStrictEqual(products[0]);
+        expect(product).toStrictEqual(testProducts[0]);
       });
     });
   });

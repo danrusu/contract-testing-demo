@@ -54,6 +54,18 @@
             },
             "stock": 99,
             "used": false
+          },
+          {
+            "currency": "EUR",
+            "id": 101,
+            "name": "samsung s20",
+            "price": 300,
+            "shop": {
+              "location": "Bucuresti",
+              "name": "Altex"
+            },
+            "stock": 3,
+            "used": true
           }
         ],
         "headers": {
@@ -61,8 +73,7 @@
         },
         "matchingRules": {
           "$.body": {
-            "match": "type",
-            "min": 1
+            "match": "type"
           }
         },
         "status": 200
