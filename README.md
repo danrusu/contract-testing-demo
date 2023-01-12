@@ -31,6 +31,8 @@ npm intall
   export PACT_PUBLISH_VERIFICATION_RESULTS=true
   export PACT_PRODUCER_TAGS="v2"
   export PACT_CONSUMER_TAGS="test"
+  # optional
+  export PACT_PRODUCER_MOCK_PORT="1234"
   ```
 
 - generate contract from consumer

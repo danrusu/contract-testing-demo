@@ -7,7 +7,7 @@ const {
   MatchersV3,
   SpecificationVersion,
 } = require('@pact-foundation/pact');
-const { eachLike, like } = MatchersV3;
+const { like } = MatchersV3;
 
 const producerMock = new PactV3({
   consumer: 'FrontendWebsite',
