@@ -45,10 +45,10 @@ describe('ProductService Pact test', () => {
 
         const productService = new ProductService(mockService.url);
 
+        // Act & Assert
         // make request to Pact mock server
         const products = await productService.getProducts();
 
-        // Act & Assert
         expect(products).toStrictEqual(testProducts);
       });
     });
